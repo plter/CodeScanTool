@@ -13,8 +13,6 @@ import com.plter.codescantool.features.EncodeSingleContent;
 import com.plter.codescantool.features.FeatureListCellData;
 import com.plter.codescantool.features.ScanCode;
 import com.plter.lib.android.java.controls.ArrayAdapter;
-import com.tencent.exmobwin.MobWINManager;
-import com.tencent.exmobwin.Type;
 
 public class MainActivity extends ListActivity {
 
@@ -22,8 +20,6 @@ public class MainActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		MobWINManager.init(this,Type.MOBWIN_BANNER);
 		
 		adapter = new ArrayAdapter<FeatureListCellData>(this,android.R.layout.simple_list_item_1) {
 			
@@ -62,7 +58,6 @@ public class MainActivity extends ListActivity {
 	
 	@Override
 	protected void onDestroy() {
-		MobWINManager.destroy();
 		super.onDestroy();
 	}
 	

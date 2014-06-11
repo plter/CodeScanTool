@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.plter.codescantool.R;
-import com.plter.lib.java.lang.ICallback;
 
 public class EncodeContact extends Encoder {
 
@@ -32,10 +31,10 @@ public class EncodeContact extends Encoder {
 
 	@Override
 	public void launch() {
-		showDialog(view, new ICallback<Void>() {
+		showDialog(view, new ICallback() {
 			
 			@Override
-			public boolean execute(Void arg) {
+			public boolean execute() {
 				if (!TextUtils.isEmpty(name.getText())) {
 					Bundle bundle = new Bundle();
 					bundle.putString(ContactsContract.Intents.Insert.NAME, TextUtils.isEmpty(name.getText())?"":name.getText().toString());

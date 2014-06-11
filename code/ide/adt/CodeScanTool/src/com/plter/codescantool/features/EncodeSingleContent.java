@@ -1,14 +1,13 @@
 package com.plter.codescantool.features;
 
-import com.plter.codescantool.R;
-import com.plter.lib.java.lang.ICallback;
-
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.plter.codescantool.R;
 
 public class EncodeSingleContent extends Encoder {
 
@@ -31,10 +30,10 @@ public class EncodeSingleContent extends Encoder {
 	@Override
 	public void launch() {
 
-		showDialog(view, new ICallback<Void>() {
+		showDialog(view, new ICallback() {
 
 			@Override
-			public boolean execute(Void arg) {
+			public boolean execute() {
 				if (!TextUtils.isEmpty(etInput.getText())) {
 					getContext().startActivity(makeIntent(contentType, etInput.getText().toString()));
 				}else{

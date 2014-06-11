@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.google.zxing.client.android.R;
 import com.google.zxing.client.android.encode.EncodeActivity;
-import com.plter.lib.java.lang.ICallback;
 
 public abstract class Encoder extends FeatureListCellData{
 
@@ -36,7 +35,7 @@ public abstract class Encoder extends FeatureListCellData{
 		return i;
 	}
 	
-	public void showDialog(final View view,final ICallback<Void> okCb){
+	public void showDialog(final View view,final ICallback okCb){
 		if (view.getParent()!=null) {
 			((ViewGroup) view.getParent()).removeView(view);
 		}
@@ -44,7 +43,7 @@ public abstract class Encoder extends FeatureListCellData{
 		new AlertDialog.Builder(getContext()).setView(view).setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				okCb.execute(null);
+				okCb.execute();
 			}
 		}).setNegativeButton(R.string.button_cancel, null).setTitle(com.plter.codescantool.R.string.please_input_content).show();
 	}
